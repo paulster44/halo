@@ -1,0 +1,22 @@
+CREATE TABLE device_specifications (
+    id SERIAL PRIMARY KEY,
+    category_id INTEGER NOT NULL,
+    device_name VARCHAR(255) NOT NULL,
+    description TEXT,
+    coverage_area_sqft INTEGER,
+    coverage_radius_feet DECIMAL(8,2),
+    mounting_height_min_feet DECIMAL(5,2),
+    mounting_height_max_feet DECIMAL(5,2),
+    mounting_height_optimal_feet DECIMAL(5,2),
+    power_consumption_watts DECIMAL(8,2),
+    voltage_requirements VARCHAR(50),
+    field_of_view_degrees INTEGER,
+    detection_range_feet DECIMAL(8,2),
+    interference_frequency_ghz DECIMAL(5,3),
+    installation_constraints TEXT,
+    environmental_requirements TEXT,
+    technical_specs JSONB,
+    placement_rules JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);

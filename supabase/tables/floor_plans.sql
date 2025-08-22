@@ -1,0 +1,22 @@
+CREATE TABLE floor_plans (
+    id SERIAL PRIMARY KEY,
+    user_id UUID,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    image_url TEXT NOT NULL,
+    file_name VARCHAR(255),
+    file_size INTEGER,
+    image_width INTEGER,
+    image_height INTEGER,
+    scale_pixels_per_foot DECIMAL(10,4),
+    analysis_status VARCHAR(50) DEFAULT 'pending',
+    analysis_results JSONB,
+    rooms_detected JSONB,
+    walls_detected JSONB,
+    doors_detected JSONB,
+    windows_detected JSONB,
+    dimensions JSONB,
+    processing_error TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);

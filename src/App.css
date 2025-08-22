@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional engineering aesthetic */
+:root {
+  --primary: 214 100% 50%; /* Blue */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 210 11% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 214 13% 95%;
+  --muted-foreground: 215 13% 65%;
+  --accent: 214 13% 95%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 93% 59%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 214 13% 90%;
+  --input: 214 13% 90%;
+  --ring: 214 100% 50%;
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+}
+
+/* Global styles */
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  font-variation-settings: 'opsz' 32;
+  letter-spacing: -0.011em;
+}
+
+/* Professional grid patterns */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.grid-pattern-fine {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+/* Technical typography */
+.font-mono-tech {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Roboto Mono', monospace;
+  font-variant-ligatures: none;
+}
+
+/* Engineering-style borders */
+.border-technical {
+  border: 1px solid hsl(var(--border));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Precision measurements */
+.text-measurement {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Status indicators */
+.status-online {
+  @apply bg-green-500;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+}
+
+.status-processing {
+  @apply bg-blue-500;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.status-error {
+  @apply bg-red-500;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Professional hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Technical button variants */
+.btn-technical {
+  @apply bg-slate-900 text-white border border-slate-700;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn-technical:hover {
+  @apply bg-slate-800;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Precision layout helpers */
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.span-full { grid-column: 1 / -1; }
+.span-6 { grid-column: span 6; }
+.span-4 { grid-column: span 4; }
+.span-3 { grid-column: span 3; }
+
+/* Professional animations */
+@keyframes blueprint-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.blueprint-scanning::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%);
+  animation: blueprint-scan 2s ease-in-out infinite;
+}
+
+/* Measurement overlays */
+.dimension-line {
+  position: relative;
+}
+
+.dimension-line::before {
+  content: '';
+  position: absolute;
+  background: hsl(var(--border));
+  height: 1px;
+}
+
+.dimension-line::after {
+  content: attr(data-measurement);
+  position: absolute;
+  font-size: 0.625rem;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--background));
+  padding: 0.125rem 0.25rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.25rem;
+}
+
+/* Professional focus states */
+.focus-professional:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Technical data tables */
+.table-technical {
+  @apply w-full border-collapse;
+}
+
+.table-technical th {
+  @apply bg-slate-50 border border-slate-200 px-3 py-2 text-left text-xs font-medium text-slate-700 uppercase tracking-wider;
+}
+
+.table-technical td {
+  @apply border border-slate-200 px-3 py-2 text-sm text-slate-900;
+}
+
+/* Responsive breakpoints for technical layouts */
+@media (max-width: 768px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .span-6,
+  .span-4,
+  .span-3 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Print styles for reports */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-before: always;
+  }
+  
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+}
