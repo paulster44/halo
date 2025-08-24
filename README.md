@@ -1,4 +1,4 @@
-# HALO - Floorplan Analysis and Layout Optimization
+# HALO - Home Automation Layout Optimization
 
 A powerful React-based application for analyzing architectural floorplans and generating optimized device placement layouts with installation guidance.
 
